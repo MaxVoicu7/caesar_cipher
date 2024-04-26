@@ -1,7 +1,10 @@
 import customtkinter as ctk
+
+from gui.caesar_break_frame import BreakCaesarCipherFrame
 from gui.main_menu_frame import MainMenuFrame
 from gui.caesar_single_key_frame import CaesarSingleKeyFrame
 from gui.caesar_double_key_frame import CaesarDoubleKeyFrame
+from gui.vigenere_frame import VigenereFrame
 
 
 class App(ctk.CTk):
@@ -22,10 +25,12 @@ class App(ctk.CTk):
         self.init_ui()
 
     def init_ui(self):
-        self.frames['MainMenu'] = MainMenuFrame(self, self.open_single_key_gui, self.open_double_key_gui)
+        self.frames['MainMenu'] = MainMenuFrame(self, self.open_single_key_gui, self.open_double_key_gui,
+                                                self.open_break_caesar, self.open_vigenere)
         self.frames['CaesarSingleKey'] = CaesarSingleKeyFrame(self, self.show_frame)
         self.frames['CaesarDoubleKey'] = CaesarDoubleKeyFrame(self, self.show_frame)
-
+        self.frames['BreakCaesar'] = BreakCaesarCipherFrame(self, self.show_frame)
+        self.frames['Vigenere'] = VigenereFrame(self, self.show_frame)
         self.show_frame('MainMenu')
 
     def show_frame(self, name):
@@ -39,3 +44,9 @@ class App(ctk.CTk):
 
     def open_double_key_gui(self):
         self.show_frame('CaesarDoubleKey')
+
+    def open_break_caesar(self):
+        self.show_frame('BreakCaesar')
+
+    def open_vigenere(self):
+        self.show_frame('Vigenere')

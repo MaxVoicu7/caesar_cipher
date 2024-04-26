@@ -11,3 +11,5 @@ alphabet = {
 }
 
 reversed_alphabet = {v: k for k, v in alphabet.items()}
+
+alphabet_length = 26
