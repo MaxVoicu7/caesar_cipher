@@ -9,3 +9,10 @@ def is_valid_key(key):
 
     except ValueError:
         return False
+
+
+def string_to_int_list(input_string):
+    string_list = input_string.split()
+    int_list = [int(num) for num in string_list]
+
+    return int_list
